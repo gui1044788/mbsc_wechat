@@ -32,7 +32,7 @@ public class ZyHzzlController {
      * 住院登记--新增
      */
     @RequestMapping(value = "/spInSetPatInfo",method = RequestMethod.POST)
-    @ApiOperation(value = "外出通行-验证")
+    @ApiOperation(value = "住院登记--新增")
     public SpInSetPatInfoResDto spInSetPatInfo(@RequestBody SpInSetPatInfoForm form) {
         return zyHzzlService.spInSetPatInfo(form);
     }
@@ -41,7 +41,7 @@ public class ZyHzzlController {
      * 住院登记--查询
      */
     @RequestMapping(value = "/spInGetPatInfo",method = RequestMethod.POST)
-    @ApiOperation(value = "外出通行-查询")
+    @ApiOperation(value = "住院登记--查询")
     public SpInGetPatInfoResDto spInGetPatInfo(@RequestBody SpInGetPatInfoForm form) {
         return zyHzzlService.spInGetPatInfo(form);
     }
