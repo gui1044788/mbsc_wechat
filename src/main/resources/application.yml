@@ -1,0 +1,91 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filter:
+        commons-log:
+          #data-source-log-enabled: true
+          statement-log-enabled: true
+          statement-executable-sql-log-enable: true
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      connection-error-retry-attempts: 5
+      break-after-acquire-failure: true
+      validation-query-timeout: 1
+      validation-query: SELECT 1 FROM DUAL
+
+
+      datasource75:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://172.16.20.75:3306/uih_appoint_sz?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+        username: test1
+        password: f93js893h
+
+      datasource184:
+        username: JZ
+        password: jinzheng
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@172.16.0.184:1521/bslis52
+
+      datasource188:
+        username: sa
+        password: Casking@88
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:sqlserver://172.16.0.188:1433;DatabaseName=CHMC
+
+      datasourceemr:
+        username: jinzheng
+        password: lgzyy_jz
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:sqlserver://172.16.0.34:1433;DatabaseName=emr
+
+      datasource34:
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:sqlserver://172.16.0.34;DatabaseName=bshrp
+        username: jinzheng
+        password: lgzyy_jz
+
+      datasourceresdb:
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:sqlserver://172.16.19.34:1433;DatabaseName=RESDB
+        username: LW_ydhl
+        password: LW_ydhl
+
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+# JWT配置
+jwt:
+  # 密匙Key
+  secret: JWTSecret
+  # HeaderKey
+  tokenHeader: Authorization
+  # Token前缀
+  tokenPrefix: Bearer
+  # 过期时间，单位秒
+  expiration: 30000
+  # 刷新时间，单位天
+  refreshTime: 7
+  # 配置白名单（不需要认证）
+  antMatchers: /login/**,/register/**,/static/**,/swagger-ui.html,/doc.html,/swagger-resources/**, /webjars/**, /v2/**, /swagger-ui.html/**
+
+# Mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: AUTO
+  configuration:
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

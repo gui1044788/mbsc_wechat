@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhsd.mapper.datasource34.ZyHzzlMapper">
+
+    <select id="spInSetPatInfo" parameterType="com.xhsd.form.SpInSetPatInfoForm"
+            statementType="CALLABLE" resultType="com.xhsd.dto.SpInSetPatInfoResDto">
+        {call sp_In_setPatInfo(
+                #{zlid,jdbcType=DECIMAL,mode=IN},
+                #{brxm,jdbcType=VARCHAR,mode=IN},
+                #{brxb,jdbcType=DECIMAL,mode=IN},
+                #{csny,jdbcType=VARCHAR,mode=IN},
+                #{sfzh,jdbcType=VARCHAR,mode=IN},
+                #{gjdm,jdbcType=DECIMAL,mode=IN},
+                #{mzdm,jdbcType=DECIMAL,mode=IN},
+                #{hyzk,jdbcType=DECIMAL,mode=IN},
+                #{zydm,jdbcType=DECIMAL,mode=IN},
+                #{jgmc,jdbcType=VARCHAR,mode=IN},
+                #{jgdmSqs,jdbcType=DECIMAL,mode=IN},
+                #{jgdmS,jdbcType=DECIMAL,mode=IN},
+                #{hkdz,jdbcType=VARCHAR,mode=IN},
+                #{hkdzSqs,jdbcType=DECIMAL,mode=IN},
+                #{hkdzS,jdbcType=DECIMAL,mode=IN},
+                #{hkdzX,jdbcType=DECIMAL,mode=IN},
+                #{hkdzQtdz,jdbcType=VARCHAR,mode=IN},
+                #{hkdh,jdbcType=VARCHAR,mode=IN},
+                #{hkyb,jdbcType=VARCHAR,mode=IN},
+                #{csd,jdbcType=VARCHAR,mode=IN},
+                #{csdSqs,jdbcType=DECIMAL,mode=IN},
+                #{csdS,jdbcType=DECIMAL,mode=IN},
+                #{csdX,jdbcType=DECIMAL,mode=IN},
+                #{xzz,jdbcType=VARCHAR,mode=IN},
+                #{xzzSqs,jdbcType=DECIMAL,mode=IN},
+                #{xzzS,jdbcType=DECIMAL,mode=IN},
+                #{xzzX,jdbcType=DECIMAL,mode=IN},
+                #{xzzQtdz,jdbcType=VARCHAR,mode=IN},
+                #{xzzYb,jdbcType=VARCHAR,mode=IN},
+                #{xzzDh,jdbcType=VARCHAR,mode=IN},
+                #{gzdw,jdbcType=VARCHAR,mode=IN},
+                #{dwdh,jdbcType=VARCHAR,mode=IN},
+                #{dwyb,jdbcType=VARCHAR,mode=IN},
+                #{lxrm,jdbcType=VARCHAR,mode=IN},
+                #{lxgx,jdbcType=DECIMAL,mode=IN},
+                #{lxdz,jdbcType=VARCHAR,mode=IN},
+                #{lxdh,jdbcType=VARCHAR,mode=IN},
+                #{zhxgsj,jdbcType=VARCHAR,mode=IN}
+            )}
+    </select>
+
+
+    <select id="spInGetPatInfo" parameterType="com.xhsd.form.SpInGetPatInfoForm"
+            statementType="CALLABLE" resultType="com.xhsd.dto.SpInGetPatInfoResDto">
+        {call sp_In_getPatInfo(
+                #{patName,jdbcType=VARCHAR,mode=IN},
+                #{idCard,jdbcType=VARCHAR,mode=IN},
+                #{brxm,jdbcType=VARCHAR,mode=OUT},
+                #{brxb,jdbcType=DECIMAL,mode=OUT},
+                #{csny,jdbcType=VARCHAR,mode=OUT},
+                #{sfzh,jdbcType=VARCHAR,mode=OUT},
+                #{gjdm,jdbcType=DECIMAL,mode=OUT},
+                #{mzdm,jdbcType=DECIMAL,mode=OUT},
+                #{hyzk,jdbcType=DECIMAL,mode=OUT},
+                #{zydm,jdbcType=DECIMAL,mode=OUT},
+                #{jgmc,jdbcType=VARCHAR,mode=OUT},
+                #{jgdmSqs,jdbcType=DECIMAL,mode=OUT},
+                #{jgdmS,jdbcType=DECIMAL,mode=OUT},
+                #{hkdz,jdbcType=VARCHAR,mode=OUT},
+                #{hkdzSqs,jdbcType=DECIMAL,mode=OUT},
+                #{hkdzS,jdbcType=DECIMAL,mode=OUT},
+                #{hkdzX,jdbcType=DECIMAL,mode=OUT},
+                #{hkdzQtdz,jdbcType=VARCHAR,mode=OUT},
+                #{hkdh,jdbcType=VARCHAR,mode=OUT},
+                #{hkyb,jdbcType=VARCHAR,mode=OUT},
+                #{csd,jdbcType=VARCHAR,mode=OUT},
+                #{csdSqs,jdbcType=DECIMAL,mode=OUT},
+                #{csdS,jdbcType=DECIMAL,mode=OUT},
+                #{csdX,jdbcType=DECIMAL,mode=OUT},
+                #{xzz,jdbcType=VARCHAR,mode=OUT},
+                #{xzzSqs,jdbcType=DECIMAL,mode=OUT},
+                #{xzzS,jdbcType=DECIMAL,mode=OUT},
+                #{xzzX,jdbcType=DECIMAL,mode=OUT},
+                #{xzzQtdz,jdbcType=VARCHAR,mode=OUT},
+                #{xzzYb,jdbcType=VARCHAR,mode=OUT},
+                #{xzzDh,jdbcType=VARCHAR,mode=OUT},
+                #{gzdw,jdbcType=VARCHAR,mode=OUT},
+                #{dwdh,jdbcType=VARCHAR,mode=OUT},
+                #{dwyb,jdbcType=VARCHAR,mode=OUT},
+                #{lxrm,jdbcType=VARCHAR,mode=OUT},
+                #{lxgx,jdbcType=DECIMAL,mode=OUT},
+                #{lxdz,jdbcType=VARCHAR,mode=OUT},
+                #{lxdh,jdbcType=VARCHAR,mode=OUT},
+                #{zhxgsj,jdbcType=VARCHAR,mode=OUT}
+            )}
+    </select>
+
+
+</mapper>
+
