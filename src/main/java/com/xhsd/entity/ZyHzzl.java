@@ -1,10 +1,14 @@
 package com.xhsd.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,6 +28,7 @@ public class ZyHzzl extends Model<ZyHzzl> implements Serializable {
     private static final long serialVersionUID = 213685817841694075L;
 
     @ApiModelProperty("")
+    @TableId(type = IdType.AUTO)
     private BigDecimal zlid;
 
     @ApiModelProperty("")
@@ -33,6 +38,8 @@ public class ZyHzzl extends Model<ZyHzzl> implements Serializable {
     private BigDecimal brxb;
 
     @ApiModelProperty("")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date csny;
 
     @ApiModelProperty("")
