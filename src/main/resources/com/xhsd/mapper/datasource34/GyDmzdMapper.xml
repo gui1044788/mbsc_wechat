@@ -21,11 +21,15 @@
         BZXX
     </sql>
 
-    <select id="selectGyDmzdByDmlb" parameterType="long" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List" />
+    <select id="selectGyDmzdByDmlb" parameterType="long" resultType="com.xhsd.dto.GyDmzdDto">
+        select DMLB,
+               DMSB,
+               SRDM,
+               DMMC,
+               BZBM
         from GY_DMZD
-        where  DMLB = #{dmlb,jdbcType=DECIMAL} AND DMSB != 0
+        where DMLB = #{dmlb,jdbcType=DECIMAL}
+          AND DMSB != 0
     </select>
 </mapper>
 

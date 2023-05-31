@@ -1,6 +1,7 @@
 package com.xhsd.mapper.datasource34;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.xhsd.dto.GyDmzdDto;
 import com.xhsd.entity.GyDmzd;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public interface GyDmzdMapper extends BaseMapper<GyDmzd> {
 
-    List<GyDmzd> selectGyDmzdByDmlb(long dmlb);
+    List<GyDmzdDto> selectGyDmzdByDmlb(long dmlb);
 
 }
 

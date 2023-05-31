@@ -12,13 +12,13 @@ import java.util.List;
 @ApiModel(description = "公共字典项统一返回DTO")
 public class GyDmzdResDto {
     @ApiModelProperty("国籍列表")
-    private List<GyDmzd> countrys;
+    private List<GyDmzdDto> countrys;
     @ApiModelProperty("民族列表")
-    private List<GyDmzd> nations;
+    private List<GyDmzdDto> nations;
     @ApiModelProperty("关系列表")
-    private List<GyDmzd> relations;
+    private List<GyDmzdDto> relations;
     @ApiModelProperty("职业列表")
-    private List<GyDmzd> jobs;
+    private List<GyDmzdDto> jobs;
     @ApiModelProperty("婚姻状态")
-    private List<GyDmzd> maritalStatus;
+    private List<GyDmzdDto> maritalStatus;
 }
