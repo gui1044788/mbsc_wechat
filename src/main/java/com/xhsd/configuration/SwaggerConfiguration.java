@@ -52,7 +52,6 @@ public class SwaggerConfiguration {
                 .description("医疗移动服务-微信端应用接口文档")
                 .version("1.0")
                 .termsOfServiceUrl("http://localhost:8079/api/doc.html")
-//                .termsOfServiceUrl("http://localhost:8080")     //网站地址
                 .build();
     }
 

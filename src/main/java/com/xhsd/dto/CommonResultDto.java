@@ -13,5 +13,7 @@ public class CommonResultDto {
     private String code;
     @ApiModelProperty("信息")
     private String msg;
+    @ApiModelProperty("错误信息")
+    private String errorMsg;
 
 }

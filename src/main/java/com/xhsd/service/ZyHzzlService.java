@@ -1,6 +1,7 @@
 package com.xhsd.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xhsd.dto.CommonResultDto;
 import com.xhsd.dto.SpInGetPatInfoResDto;
 import com.xhsd.entity.ZyHzzl;
 import com.xhsd.form.SpInGetPatInfoForm;
@@ -15,7 +16,7 @@ import com.xhsd.utils.Result;
  */
 public interface ZyHzzlService extends IService<ZyHzzl> {
 
-    Result spInSetPatInfo(SpPatInfoForm form);
+    Result<CommonResultDto> spInSetPatInfo(SpPatInfoForm form);
     SpInGetPatInfoResDto spInGetPatInfo(SpInGetPatInfoForm form);
 
 }

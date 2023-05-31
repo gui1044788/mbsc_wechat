@@ -1,5 +1,6 @@
 package com.xhsd.controller;
 
+import com.xhsd.dto.CommonResultDto;
 import com.xhsd.dto.SpInGetPatInfoResDto;
 import com.xhsd.form.SpInGetPatInfoForm;
 import com.xhsd.form.SpPatInfoForm;
@@ -11,7 +12,11 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -36,20 +41,16 @@ public class ZyHzzlController {
     /**
      * 住院登记--新增
      */
-    @RequestMapping(value = "/spInSetPatInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/spInSetPatInfo", method = RequestMethod.POST)
     @ApiOperation(value = "住院登记--新增")
-    public Result spInSetPatInfo(@Valid @RequestBody SpPatInfoForm form,BindingResult result) {
-        if (result.hasErrors()){
-            log.error("登记信息有误:{}:{}", Objects.requireNonNull(result.getFieldError().getField()),result.getFieldError().getDefaultMessage());
-            return Result.failure(ReturnCode.OPERATION_ERROR,result.getAllErrors().get(0).getDefaultMessage());
-        }
+    public Result<CommonResultDto> spInSetPatInfo(@RequestBody @Valid SpPatInfoForm form) {
         return zyHzzlService.spInSetPatInfo(form);
     }
 
     /**
      * 住院登记--查询
      */
-    @RequestMapping(value = "/spInGetPatInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/spInGetPatInfo", method = RequestMethod.POST)
     @ApiOperation(value = "住院登记--查询")
     public Result<SpInGetPatInfoResDto> spInGetPatInfo(@RequestBody SpInGetPatInfoForm form) {
         return Result.success(zyHzzlService.spInGetPatInfo(form));

@@ -27,29 +27,28 @@ import org.springframework.stereotype.Service;
 public class ZyHzzlServiceImpl extends ServiceImpl<ZyHzzlMapper, ZyHzzl> implements ZyHzzlService {
 
     @Override
-    public Result spInSetPatInfo(SpPatInfoForm form) {
+    public Result<CommonResultDto> spInSetPatInfo(SpPatInfoForm form) {
+        CommonResultDto dto = new CommonResultDto();
         try {
-            String xml= BeanXmlUtils.bean2xml(form,null);
-            xml = xml.replace("__","_");
+            String xml = BeanXmlUtils.bean2xml(form, null);
+            xml = xml.replace("__", "_");
             SpInSetPatInfoForm resForm = new SpInSetPatInfoForm();
             resForm.setMsgBody(xml);
             baseMapper.spInSetPatInfo(resForm);
-            CommonResultDto dto = new CommonResultDto();
             dto.setCode(resForm.getRetValue());
             dto.setMsg(resForm.getRetDesc());
-            if (CommonCst.STR_ONE.equals(dto.getCode())){
-                return Result.success(dto);
-            }
-            return Result.failure(ReturnCode.OPERATION_ERROR,dto);
         } catch (Exception e) {
-            log.error("spInSetPatInfo is error :{}",e.getMessage());
-            return Result.failure(ReturnCode.RC_FAIL,e.getMessage());
+            log.error("spInSetPatInfo is error :{}", e.getMessage());
+            dto.setCode(CommonCst.STR_MINUS_ONE);
+            dto.setMsg(e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
+        return Result.success(dto);
     }
 
     @Override
     public SpInGetPatInfoResDto spInGetPatInfo(SpInGetPatInfoForm form) {
-        String xml= BeanXmlUtils.bean2xml(form,null);
+        String xml = BeanXmlUtils.bean2xml(form, null);
         return baseMapper.spInGetPatInfo(xml);
     }
 

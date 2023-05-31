@@ -8,17 +8,18 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 @Data
 @ApiModel(description = "住院登记信息请求form")
 @XStreamAlias("root")
 public class SpPatInfoForm {
     @ApiModelProperty("患者姓名")
-    @Max(40)
+    @Size(max = 40,message = "患者姓名长度不能超过40")
     private String brxm;
 
     @ApiModelProperty("患者性别")
-    @Max(4)
+    @Size(max = 4,message = "患者性别长度不能超过4")
     private String brxb;
 
     @ApiModelProperty("出生年月")
@@ -27,150 +28,150 @@ public class SpPatInfoForm {
     private String csny;
 
     @ApiModelProperty("身份证号")
-    @Max(20)
+    @Size(max = 20,message = "身份证号长度不能超过20")
     private String sfzh;
 
     @ApiModelProperty("国籍代码")
-    @Max(4)
+    @Size(max = 4,message = "国籍代码长度不能超过4")
     private String gjdm;
 
     @ApiModelProperty("民族代码")
-    @Max(4)
+    @Size(max = 4,message = "民族代码长度不能超过4")
     private String mzdm;
 
     @ApiModelProperty("婚姻状况")
-    @Max(4)
+    @Size(max = 4,message = "民族代码长度不能超过4")
     private String hyzk;
 
     @ApiModelProperty("职业代码")
-    @Max(4)
+    @Size(max = 4,message = "职业代码长度不能超过4")
     private String zydm;
 
     @ApiModelProperty("籍贯名称")
-    @Max(30)
+    @Size(max = 30,message = "籍贯名称长度不能超过30")
     private String jgmc;
 
     @ApiModelProperty("籍贯代码_省")
-    @Max(18)
+    @Size(max = 18,message = "籍贯代码_省长度不能超过18")
     @XStreamAlias("jgdm_sqs")
     private String jgdmSqs;
 
     @ApiModelProperty("籍贯代码_市")
-    @Max(18)
+    @Size(max = 18,message = "籍贯代码_市长度不能超过18")
     @XStreamAlias("jgdm_s")
     private String jgdmS;
 
     @ApiModelProperty("户口地址")
-    @Max(300)
+    @Size(max = 300,message = "户口地址长度不能超过300")
     private String hkdz;
 
     @ApiModelProperty("户口地址_省")
-    @Max(18)
+    @Size(max = 18,message = "户口地址_省长度不能超过18")
     @XStreamAlias("hkdz_sqs")
     private String hkdzSqs;
 
     @ApiModelProperty("户口地址_市")
-    @Max(18)
+    @Size(max = 18,message = "户口地址_市长度不能超过18")
     @XStreamAlias("hkdz_s")
     private String hkdzS;
 
     @ApiModelProperty("户口地址_县")
-    @Max(18)
+    @Size(max = 18,message = "户口地址_县长度不能超过18")
     @XStreamAlias("hkdz_x")
     private String hkdzX;
 
     @ApiModelProperty("户口地址_其他地址")
-    @Max(150)
+    @Size(max = 150,message = "户口地址_其他地址长度不能超过150")
     @XStreamAlias("hkdz_qtdz")
     private String hkdzQtdz;
 
     @ApiModelProperty("户口电话")
-    @Max(20)
+    @Size(max = 20,message = "户口电话长度不能超过20")
     private String hkdh;
 
     @ApiModelProperty("户口邮编")
-    @Max(6)
+    @Size(max = 6,message = "户口邮编长度不能超过6")
     private String hkyb;
 
     @ApiModelProperty("出生地址")
-    @Max(300)
+    @Size(max = 300,message = "出生地址长度不能超过300")
     private String csd;
 
     @ApiModelProperty("出生地址_省")
-    @Max(18)
+    @Size(max = 18,message = "出生地址_省长度不能超过18")
     @XStreamAlias("csd_sqs")
     private String csdSqs;
 
     @ApiModelProperty("出生地址_市")
-    @Max(18)
+    @Size(max = 18,message = "出生地址_市长度不能超过18")
     @XStreamAlias("csd_s")
     private String csdS;
 
     @ApiModelProperty("出生地址_县")
-    @Max(18)
+    @Size(max = 18,message = "出生地址_县长度不能超过18")
     @XStreamAlias("csd_x")
     private String csdX;
 
     @ApiModelProperty("现住址")
-    @Max(300)
+    @Size(max = 300,message = "现住址长度不能超过300")
     private String xzz;
 
     @ApiModelProperty("现住址_省")
-    @Max(18)
+    @Size(max = 18,message = "现住址_省长度不能超过18")
     @XStreamAlias("xzz_sqs")
     private String xzzSqs;
 
     @ApiModelProperty("现住址_市")
-    @Max(18)
+    @Size(max = 18,message = "现住址_市长度不能超过18")
     @XStreamAlias("xzz_s")
     private String xzzS;
 
     @ApiModelProperty("现住址_县")
-    @Max(18)
+    @Size(max = 18,message = "现住址_县长度不能超过18")
     @XStreamAlias("xzz_x")
     private String xzzX;
 
     @ApiModelProperty("现住址_其他地址")
-    @Max(150)
+    @Size(max = 150,message = "现住址_其他地址长度不能超过150")
     @XStreamAlias("xzz_qtdz")
     private String xzzQtdz;
 
     @ApiModelProperty("现住址_邮编")
-    @Max(6)
+    @Size(max = 6,message = "现住址_邮编长度不能超过6")
     @XStreamAlias("xzz_yb")
     private String xzzYb;
 
     @ApiModelProperty("现住址_电话")
-    @Max(20)
+    @Size(max = 20,message = "现住址_电话长度不能超过20")
     @XStreamAlias("xzz_dh")
     private String xzzDh;
 
     @ApiModelProperty("工作单位")
-    @Max(300)
+    @Size(max = 300,message = "工作单位长度不能超过300")
     private String gzdw;
 
     @ApiModelProperty("工作单位电话")
-    @Max(20)
+    @Size(max = 20,message = "工作单位长度不能超过20")
     private String dwdh;
 
     @ApiModelProperty("工作单位邮编")
-    @Max(6)
+    @Size(max = 6,message = "工作单位邮编长度不能超过6")
     private String dwyb;
 
     @ApiModelProperty("联系人名")
-    @Max(30)
+    @Size(max = 30,message = "联系人名长度不能超过30")
     private String lxrm;
 
     @ApiModelProperty("联系人关系")
-    @Max(4)
+    @Size(max = 4,message = "联系人关系长度不能超过4")
     private String lxgx;
 
     @ApiModelProperty("联系人地址")
-    @Max(300)
+    @Size(max = 300,message = "联系人地址长度不能超过300")
     private String lxdz;
 
     @ApiModelProperty("联系人电话")
-    @Max(20)
+    @Size(max = 20,message = "联系人地址长度不能超过20")
     private String lxdh;
 
 
