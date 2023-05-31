@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhsd.mapper.datasource34.GyDmzdMapper">
+    <resultMap id="BaseResultMap" type="com.xhsd.entity.GyDmzd">
+        <id property="dmlb" column="DMLB" jdbcType="DECIMAL"/>
+        <id property="dmsb" column="DMSB" jdbcType="DECIMAL"/>
+        <result property="srdm" column="SRDM" jdbcType="VARCHAR"/>
+        <result property="dmmc" column="DMMC" jdbcType="VARCHAR"/>
+        <result property="bzbm" column="BZBM" jdbcType="VARCHAR"/>
+        <result property="mpicode" column="MPICODE" jdbcType="VARCHAR"/>
+        <result property="lxzt" column="LXZT" jdbcType="DECIMAL"/>
+        <result property="zfpb" column="ZFPB" jdbcType="DECIMAL"/>
+        <result property="plxh" column="PLXH" jdbcType="DECIMAL"/>
+        <result property="bzxx" column="BZXX" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        DMLB,DMSB,SRDM,
+        DMMC,BZBM,MPICODE,
+        LXZT,ZFPB,PLXH,
+        BZXX
+    </sql>
+
+    <select id="selectGyDmzdByDmlb" parameterType="long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from GY_DMZD
+        where  DMLB = #{dmlb,jdbcType=DECIMAL} AND DMSB != 0
+    </select>
+</mapper>
+
