@@ -6,13 +6,10 @@ import com.xhsd.form.SpInGetPatInfoForm;
 import com.xhsd.form.SpPatInfoForm;
 import com.xhsd.service.ZyHzzlService;
 import com.xhsd.utils.Result;
-import com.xhsd.utils.ReturnCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.Objects;
 
 /**
  * (com.xhsd.entity.ZyHzzl)表服务控制层
