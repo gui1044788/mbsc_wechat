@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ *
+ * 拦截器掩码
  * @author guijun
  */
 @Slf4j
