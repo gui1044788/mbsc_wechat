@@ -15,10 +15,14 @@ public class GyDmzdResDto {
     private List<GyDmzdDto> countrys;
     @ApiModelProperty("民族列表")
     private List<GyDmzdDto> nations;
+    @ApiModelProperty("性别列表")
+    private List<GyDmzdDto> gender;
     @ApiModelProperty("关系列表")
     private List<GyDmzdDto> relations;
     @ApiModelProperty("职业列表")
     private List<GyDmzdDto> jobs;
     @ApiModelProperty("婚姻状态")
     private List<GyDmzdDto> maritalStatus;
+    @ApiModelProperty("入院途径")
+    private List<GyDmzdDto> formOfHospitalization;
 }

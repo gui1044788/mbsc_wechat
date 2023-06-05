@@ -29,11 +29,15 @@ public class GyDmzdServiceImpl extends ServiceImpl<GyDmzdMapper, GyDmzd> impleme
         List<GyDmzdDto> relations = baseMapper.selectGyDmzdByDmlb(4);
         List<GyDmzdDto> jobs = baseMapper.selectGyDmzdByDmlb(14);
         List<GyDmzdDto> maritalStatus = baseMapper.selectGyDmzdByDmlb(5);
+        List<GyDmzdDto> formOfHospitalization = baseMapper.selectGyDmzdByDmlb(228);
+        List<GyDmzdDto> gender = baseMapper.selectGyDmzdByDmlb(15);
         gyDmzdResDto.setJobs(jobs);
+        gyDmzdResDto.setGender(gender);
         gyDmzdResDto.setNations(nations);
         gyDmzdResDto.setCountrys(countrys);
         gyDmzdResDto.setMaritalStatus(maritalStatus);
         gyDmzdResDto.setRelations(relations);
+        gyDmzdResDto.setFormOfHospitalization(formOfHospitalization);
         return Result.success(gyDmzdResDto);
     }
 }

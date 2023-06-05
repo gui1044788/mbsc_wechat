@@ -30,6 +30,7 @@
         from GY_DMZD
         where DMLB = #{dmlb,jdbcType=DECIMAL}
           AND DMSB != 0
+        order by DMSB
     </select>
 </mapper>
 
