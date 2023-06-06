@@ -59,31 +59,28 @@
     </sql>
 
     <select id="queryYsMzJzlsDtoListByNameId" parameterType="com.xhsd.form.QueryYsMzJzlsDtoListForm" resultType="com.xhsd.dto.YsMzJzlsDto">
-        select ys.JZXH,
-               ys.GHXH,
-               ys.BRBH,
-               ys.KSDM,
-               ys.YSDM,
-               ys.ZYZD,
-               ys.KSSJ,
-               ys.JSSJ,
-               ys.JZZT,
-               ys.ZDMC,
-               ys.CZPB,
-               ys.MQZD,
-               ys.JZQJBZ,
-               ys.JZQJSWBZ,
-               ys.BRTZ,
-               ys.YBYJ,
-               ys.SSY,
-               ys.SZY,
-               ys.MB,
-               ys.YQDYBZ,
-               ys.LSTD
-        from ys_mz_jzls ys
-                 left join ms_brda m on ys.BRBH = m.BRID
-        where m.BRXM = #{brxm}
-          and m.SFZH = #{sfzh}
+
+        SELECT A.JZXH,
+        A.KSSJ,
+        KS.KSMC,
+        YG.YGXM,
+        B.MZHM,
+        B.BRXM
+        FROM YS_MZ_JZLS A
+        LEFT JOIN GY_KSDM KS ON (A.KSDM = KS.KSDM)
+        LEFT JOIN GY_YGDM YG ON (A.YSDM = YG.YGDM),
+        MS_BRDA B WITH ( NOLOCK )
+        WHERE
+        A.BRBH = B.BRID
+        <if test='brxm != null and brxm != "" '>
+            AND B.BRXM = #{brxm}
+        </if>
+        AND B.SFZH = #{sfzh}
+        AND B.ZXBZ = 0
+        AND A.KSSJ >= DATEADD( MONTH
+        , - 3
+        , GETDATE( ) )
+        order by A.KSSJ desc
 
     </select>
 

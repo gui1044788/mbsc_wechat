@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -77,7 +78,7 @@ public class MaskDataFilter implements Filter {
                 ciMap.put("data", data);
                 cipherText = JSONObject.toJSONString(ciMap);
             } catch (Exception e) {
-                log.error("#####MaskDataFilter->返回参数掩码失败,{}",e.getMessage());
+                log.info("#####MaskDataFilter->返回参数掩码失败,{}",e.getMessage());
             }
             //把返回值输出到客户端
             ServletOutputStream out = response.getOutputStream();

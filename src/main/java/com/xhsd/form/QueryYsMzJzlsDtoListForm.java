@@ -5,15 +5,17 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NonNull;
 
+import javax.validation.constraints.NotEmpty;
+
 @Data
 @ApiModel(description = "查询患者记信息请求form")
 public class QueryYsMzJzlsDtoListForm {
 
     @ApiModelProperty("患者姓名")
-    @NonNull
     private String brxm;
-    @ApiModelProperty("身份证号码")
-    @NonNull
+
+    @ApiModelProperty(value = "身份证号码",required = true)
+    @NotEmpty(message = "身份号不能为空")
     private String sfzh;
 
 }
