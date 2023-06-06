@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.xhsd.utils.MaskDataUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -23,13 +24,21 @@ import java.util.*;
 @Component
 public class MaskDataFilter implements Filter {
 
-    //姓名
+    /**
+     * 姓名
+     */
     private static List<String> maskNameList = Arrays.asList("brxm","lxrm");
-    //身份证号码
+    /**
+     * 身份证号码
+     */
     private static List<String> maskIdCardList =  Arrays.asList("sfzh");
-    //地址
+    /**
+     * 地址
+     */
     private static List<String> maskAddressList =  Arrays.asList("hkdz","hkdzQtdz","csd","xzz","xzzQtdz","lxdz");
-    //电话
+    /**
+     * 电话
+     */
     private static List<String> maskMobileList =  Arrays.asList("xzzDh","hkdh","lxdh","dwdh");
 
 
