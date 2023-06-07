@@ -1,4 +1,4 @@
-package com.xhsd.datasource;
+package com.xhsd.baseutils.datasource;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;

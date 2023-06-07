@@ -3,7 +3,6 @@ package com.xhsd.form;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NonNull;
 
 import javax.validation.constraints.NotEmpty;
 

@@ -1,4 +1,4 @@
-package com.xhsd.datasource;
+package com.xhsd.baseutils.datasource;
 
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -24,42 +25,43 @@ import java.util.Collections;
 
 /**
  * sqlserver
- * ip:172.16.0.75:1433
+ * ip:172.16.0.188:1433
  * CHMC
  * @author guijun
  *
  */
 @Configuration
-@MapperScan(basePackages = {"com.xhsd.mapper.datasource75"}, sqlSessionFactoryRef = "sqlSessionFactoryDs75")
-public class Mybatis75Config {
+@MapperScan(basePackages = {"com.xhsd.mapper.datasource188"}, sqlSessionFactoryRef = "sqlSessionFactoryDs188")
+public class Mybatis188Config {
 
     @Autowired
-    @Qualifier("datasource75")
-    private DataSource datasource75;
+    @Qualifier("datasource188")
+    private DataSource datasource188;
 
     @Bean
-    public PaginationInnerInterceptor paginationInnerInterceptorMysql75() {
+    public PaginationInnerInterceptor paginationInnerInterceptorSqlServer188() {
         PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
         // 设置最大单页限制数量，默认 500 条，-1 不受限制
         paginationInterceptor.setMaxLimit(-1L);
-        paginationInterceptor.setDbType(DbType.MYSQL);
+        paginationInterceptor.setDbType(DbType.SQL_SERVER);
         // 开启 count 的 join 优化,只针对部分 left join
         paginationInterceptor.setOptimizeJoin(true);
         return paginationInterceptor;
     }
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptorMysql75(){
+    public MybatisPlusInterceptor mybatisPlusInterceptorSqlServer188(){
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorMysql75()));
+        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorSqlServer188()));
         return mybatisPlusInterceptor;
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactoryDs75() throws Exception {
+    @Primary
+    public SqlSessionFactory sqlSessionFactoryDs188() throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
-        factoryBean.setDataSource(datasource75);
+        factoryBean.setDataSource(datasource188);
         factoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasource75/*.xml")
+                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasource188/*.xml")
         );
         //向Mybatis过滤器链中添加拦截器
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
@@ -74,19 +76,21 @@ public class Mybatis75Config {
         // 配置打印sql语句
         configuration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(configuration);
-        factoryBean.setPlugins(mybatisPlusInterceptorMysql75());
+        factoryBean.setPlugins(mybatisPlusInterceptorSqlServer188());
 
         return factoryBean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplateDs75() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDs75());
+    @Primary
+    public SqlSessionTemplate sqlSessionTemplateDs188() throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDs188());
         return template;
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager75() {
-        return new DataSourceTransactionManager(datasource75);
+    @Primary
+    public DataSourceTransactionManager transactionManager188() {
+        return new DataSourceTransactionManager(datasource188);
     }
 }

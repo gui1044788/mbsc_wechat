@@ -1,4 +1,5 @@
-package com.xhsd.datasource;
+package com.xhsd.baseutils.datasource;
+
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
@@ -23,22 +24,21 @@ import java.util.Collections;
 
 /**
  * sqlserver
- * ip:172.16.0.34
- * bshrp
- *
+ * ip:172.16.0.RESDB:1433
+ * CHMC
  * @author guijun
  *
  */
 @Configuration
-@MapperScan(basePackages = {"com.xhsd.mapper.datasourceemr"}, sqlSessionFactoryRef = "sqlSessionFactoryDsEmr")
-public class MybatisEmrConfig {
+@MapperScan(basePackages = {"com.xhsd.mapper.datasourceresdb"}, sqlSessionFactoryRef = "sqlSessionFactoryDsRESDB")
+public class MybatisDatasourceRESDBConfig {
 
     @Autowired
-    @Qualifier("datasourceEmr")
-    private DataSource datasourceEmr;
+    @Qualifier("datasourceRESDB")
+    private DataSource datasourceRESDB;
 
     @Bean
-    public PaginationInnerInterceptor paginationInnerInterceptorSqlServerEmr() {
+    public PaginationInnerInterceptor paginationInnerInterceptorSqlServerRe() {
         PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
         // 设置最大单页限制数量，默认 500 条，-1 不受限制
         paginationInterceptor.setMaxLimit(-1L);
@@ -48,20 +48,23 @@ public class MybatisEmrConfig {
         return paginationInterceptor;
     }
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptorSqlServerEmr(){
+    public MybatisPlusInterceptor mybatisPlusInterceptorSqlServerRe(){
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorSqlServerEmr()));
+        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorSqlServerRe()));
         return mybatisPlusInterceptor;
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactoryDsEmr() throws Exception {
+    public SqlSessionFactory sqlSessionFactoryDsRESDB() throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
-        factoryBean.setDataSource(datasourceEmr);
+        factoryBean.setDataSource(datasourceRESDB);
         factoryBean.setMapperLocations(
-                //设置mybatis的xml所在位置
-                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasourceemr/*.xml")
+                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasourceresdb/*.xml")
         );
+        //向Mybatis过滤器链中添加拦截器
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.SQL_SERVER));
+        factoryBean.setPlugins(interceptor);
 
         // 导入mybatis配置
         MybatisConfiguration configuration = new MybatisConfiguration();
@@ -71,18 +74,19 @@ public class MybatisEmrConfig {
         // 配置打印sql语句
         configuration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(configuration);
-        factoryBean.setPlugins(mybatisPlusInterceptorSqlServerEmr());
+        factoryBean.setPlugins(mybatisPlusInterceptorSqlServerRe());
+
         return factoryBean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplateDsEmr() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDsEmr());
+    public SqlSessionTemplate sqlSessionTemplateDsRESDB() throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDsRESDB());
         return template;
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManagerEmr() {
-        return new DataSourceTransactionManager(datasourceEmr);
+    public DataSourceTransactionManager transactionManagerRESDB() {
+        return new DataSourceTransactionManager(datasourceRESDB);
     }
 }

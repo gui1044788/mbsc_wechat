@@ -1,4 +1,4 @@
-package com.xhsd.filter;
+package com.xhsd.baseutils.filter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

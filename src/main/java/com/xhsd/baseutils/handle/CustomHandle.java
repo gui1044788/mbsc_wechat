@@ -1,4 +1,4 @@
-package com.xhsd.handle;
+package com.xhsd.baseutils.handle;
 
 import com.xhsd.constant.CommonCst;
 import com.xhsd.dto.ExceptionResultDto;

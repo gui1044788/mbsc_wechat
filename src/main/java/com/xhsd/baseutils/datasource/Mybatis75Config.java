@@ -1,4 +1,4 @@
-package com.xhsd.datasource;
+package com.xhsd.baseutils.datasource;
 
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -24,42 +24,42 @@ import java.util.Collections;
 
 /**
  * sqlserver
- * ip:172.16.0.184:1433
+ * ip:172.16.0.75:1433
  * CHMC
  * @author guijun
  *
  */
 @Configuration
-@MapperScan(basePackages = {"com.xhsd.mapper.datasource184"}, sqlSessionFactoryRef = "sqlSessionFactoryDs184")
-public class Mybatis184Config {
+@MapperScan(basePackages = {"com.xhsd.mapper.datasource75"}, sqlSessionFactoryRef = "sqlSessionFactoryDs75")
+public class Mybatis75Config {
 
     @Autowired
-    @Qualifier("datasource184")
-    private DataSource datasource184;
+    @Qualifier("datasource75")
+    private DataSource datasource75;
 
     @Bean
-    public PaginationInnerInterceptor paginationInnerInterceptorOracle184() {
+    public PaginationInnerInterceptor paginationInnerInterceptorMysql75() {
         PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
         // 设置最大单页限制数量，默认 500 条，-1 不受限制
         paginationInterceptor.setMaxLimit(-1L);
-        paginationInterceptor.setDbType(DbType.ORACLE);
+        paginationInterceptor.setDbType(DbType.MYSQL);
         // 开启 count 的 join 优化,只针对部分 left join
         paginationInterceptor.setOptimizeJoin(true);
         return paginationInterceptor;
     }
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptorOracle184(){
+    public MybatisPlusInterceptor mybatisPlusInterceptorMysql75(){
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorOracle184()));
+        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorMysql75()));
         return mybatisPlusInterceptor;
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactoryDs184() throws Exception {
+    public SqlSessionFactory sqlSessionFactoryDs75() throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
-        factoryBean.setDataSource(datasource184);
+        factoryBean.setDataSource(datasource75);
         factoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasource184/*.xml")
+                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasource75/*.xml")
         );
         //向Mybatis过滤器链中添加拦截器
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
@@ -74,19 +74,19 @@ public class Mybatis184Config {
         // 配置打印sql语句
         configuration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(configuration);
-        factoryBean.setPlugins(mybatisPlusInterceptorOracle184());
+        factoryBean.setPlugins(mybatisPlusInterceptorMysql75());
 
         return factoryBean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplateDs184() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDs184());
+    public SqlSessionTemplate sqlSessionTemplateDs75() throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDs75());
         return template;
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager184() {
-        return new DataSourceTransactionManager(datasource184);
+    public DataSourceTransactionManager transactionManager75() {
+        return new DataSourceTransactionManager(datasource75);
     }
 }

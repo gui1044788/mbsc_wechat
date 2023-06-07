@@ -11,7 +11,7 @@
               value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
     <contextName>msbc</contextName>
 
-    <property name="LOG_PATH" value="E:/java/workSpaces/msbc/log/springboot-slf4j"/>
+    <property name="LOG_PATH" value="/usr/app/deploy/logs/msbc/wechat"/>
     <property name="APPDIR" value="logs"/>
 
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">

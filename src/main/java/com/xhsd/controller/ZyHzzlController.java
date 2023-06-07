@@ -1,5 +1,6 @@
 package com.xhsd.controller;
 
+import com.xhsd.baseutils.currentlimiting.CurrentLimiting;
 import com.xhsd.dto.CommonResultDto;
 import com.xhsd.dto.SpInGetPatInfoResDto;
 import com.xhsd.form.SpInGetPatInfoForm;
@@ -39,6 +40,7 @@ public class ZyHzzlController {
      */
     @RequestMapping(value = "/spInSetPatInfo", method = RequestMethod.POST)
     @ApiOperation(value = "住院登记--新增")
+    @CurrentLimiting()
     public Result<CommonResultDto> spInSetPatInfo(@RequestBody @Valid SpPatInfoForm form) {
         return zyHzzlService.spInSetPatInfo(form);
     }
@@ -48,6 +50,7 @@ public class ZyHzzlController {
      */
     @RequestMapping(value = "/spInGetPatInfo", method = RequestMethod.POST)
     @ApiOperation(value = "住院登记--查询")
+    @CurrentLimiting()
     public Result<SpInGetPatInfoResDto> spInGetPatInfo(@RequestBody SpInGetPatInfoForm form) {
         return Result.success(zyHzzlService.spInGetPatInfo(form));
     }

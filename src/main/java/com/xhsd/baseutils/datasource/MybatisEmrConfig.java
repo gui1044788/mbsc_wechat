@@ -1,5 +1,4 @@
-package com.xhsd.datasource;
-
+package com.xhsd.baseutils.datasource;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -25,21 +23,22 @@ import java.util.Collections;
 
 /**
  * sqlserver
- * ip:172.16.0.188:1433
- * CHMC
+ * ip:172.16.0.34
+ * bshrp
+ *
  * @author guijun
  *
  */
 @Configuration
-@MapperScan(basePackages = {"com.xhsd.mapper.datasource188"}, sqlSessionFactoryRef = "sqlSessionFactoryDs188")
-public class Mybatis188Config {
+@MapperScan(basePackages = {"com.xhsd.mapper.datasourceemr"}, sqlSessionFactoryRef = "sqlSessionFactoryDsEmr")
+public class MybatisEmrConfig {
 
     @Autowired
-    @Qualifier("datasource188")
-    private DataSource datasource188;
+    @Qualifier("datasourceEmr")
+    private DataSource datasourceEmr;
 
     @Bean
-    public PaginationInnerInterceptor paginationInnerInterceptorSqlServer188() {
+    public PaginationInnerInterceptor paginationInnerInterceptorSqlServerEmr() {
         PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
         // 设置最大单页限制数量，默认 500 条，-1 不受限制
         paginationInterceptor.setMaxLimit(-1L);
@@ -49,24 +48,20 @@ public class Mybatis188Config {
         return paginationInterceptor;
     }
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptorSqlServer188(){
+    public MybatisPlusInterceptor mybatisPlusInterceptorSqlServerEmr(){
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorSqlServer188()));
+        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptorSqlServerEmr()));
         return mybatisPlusInterceptor;
     }
 
     @Bean
-    @Primary
-    public SqlSessionFactory sqlSessionFactoryDs188() throws Exception {
+    public SqlSessionFactory sqlSessionFactoryDsEmr() throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
-        factoryBean.setDataSource(datasource188);
+        factoryBean.setDataSource(datasourceEmr);
         factoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasource188/*.xml")
+                //设置mybatis的xml所在位置
+                new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/datasourceemr/*.xml")
         );
-        //向Mybatis过滤器链中添加拦截器
-        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.SQL_SERVER));
-        factoryBean.setPlugins(interceptor);
 
         // 导入mybatis配置
         MybatisConfiguration configuration = new MybatisConfiguration();
@@ -76,21 +71,18 @@ public class Mybatis188Config {
         // 配置打印sql语句
         configuration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(configuration);
-        factoryBean.setPlugins(mybatisPlusInterceptorSqlServer188());
-
+        factoryBean.setPlugins(mybatisPlusInterceptorSqlServerEmr());
         return factoryBean.getObject();
     }
 
     @Bean
-    @Primary
-    public SqlSessionTemplate sqlSessionTemplateDs188() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDs188());
+    public SqlSessionTemplate sqlSessionTemplateDsEmr() throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryDsEmr());
         return template;
     }
 
     @Bean
-    @Primary
-    public DataSourceTransactionManager transactionManager188() {
-        return new DataSourceTransactionManager(datasource188);
+    public DataSourceTransactionManager transactionManagerEmr() {
+        return new DataSourceTransactionManager(datasourceEmr);
     }
 }

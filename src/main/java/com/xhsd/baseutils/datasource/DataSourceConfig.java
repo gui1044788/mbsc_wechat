@@ -1,4 +1,4 @@
-package com.xhsd.datasource;
+package com.xhsd.baseutils.datasource;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
