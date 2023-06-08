@@ -107,7 +107,6 @@ public class AccessLogFilter extends OncePerRequestFilter {
             logs.add("params=" + requestParams);
             logs.add("request=" + requestString);
             logs.add("response=" + responseString);
-            CheakEncodingUtils.getEncoding(logs.toString());
             log.info(String.join(",", logs));
         } catch (Throwable e) {
             log.error("got an exception when saving access log", e);
@@ -132,7 +131,7 @@ public class AccessLogFilter extends OncePerRequestFilter {
         if (wrapper != null) {
             try {
                 final byte[] buf = wrapper.getContentAsByteArray();
-                return new String(buf, wrapper.getCharacterEncoding()).replaceAll("\n|\r", "");
+                return new String(buf, StandardCharsets.UTF_8.name()).replaceAll("\n|\r", "");
             } catch (UnsupportedEncodingException e) {
                 return "[UNKNOWN]";
             }
@@ -146,7 +145,7 @@ public class AccessLogFilter extends OncePerRequestFilter {
         if (wrapper != null) {
             try {
                 final byte[] buf = wrapper.getContentAsByteArray();
-                return new String(buf, wrapper.getCharacterEncoding()).replaceAll("\n|\r", "");
+                return new String(buf, StandardCharsets.UTF_8.name()).replaceAll("\n|\r", "");
             } catch (UnsupportedEncodingException e) {
                 return "[UNKNOWN]";
             }

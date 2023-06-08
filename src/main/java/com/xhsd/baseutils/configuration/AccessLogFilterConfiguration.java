@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * 接口出入参打印过滤器注册
  *
  */
-//@Configuration
+@Configuration
 public class AccessLogFilterConfiguration {
 
 
