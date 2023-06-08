@@ -61,6 +61,8 @@ public class SpInGetPatInfoResDto {
     @ApiModelProperty("")
     private String xzzX;
     @ApiModelProperty("")
+    private String xzzJd;
+    @ApiModelProperty("")
     private String xzzQtdz;
     @ApiModelProperty("")
     private String xzzYb;

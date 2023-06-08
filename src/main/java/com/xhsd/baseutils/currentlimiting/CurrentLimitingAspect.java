@@ -49,7 +49,7 @@ public class CurrentLimitingAspect {
 
         if (Count >= currentLimiting.value()) {
             // 超过次数，不执行目标方法
-            return Result.failure(ReturnCode.OPERATION_ERROR,"操作频繁!,请稍后再试!");
+            return Result.failure(ReturnCode.FREQUENT_OPERATION);
         } else if (Count == 0){
             // 第一次请求时，设置有效时间
             em.put(request.getRemoteAddr(), Count + 1, ExpirationPolicy.CREATED, currentLimiting.time(), TimeUnit.MILLISECONDS);

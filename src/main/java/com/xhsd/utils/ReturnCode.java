@@ -26,6 +26,11 @@ public enum ReturnCode {
      */
     EXPECTATION_ERROR(HttpStatus.EXPECTATION_FAILED, 503, "异常失败"),
 
+    /**
+     * 操作频繁
+     */
+    FREQUENT_OPERATION(HttpStatus.INTERNAL_SERVER_ERROR, 599, "操作频繁,请稍后再试!"),
+
 
 
 

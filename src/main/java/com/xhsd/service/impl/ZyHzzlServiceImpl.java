@@ -12,7 +12,6 @@ import com.xhsd.mapper.datasource34.ZyHzzlMapper;
 import com.xhsd.service.ZyHzzlService;
 import com.xhsd.utils.BeanXmlUtils;
 import com.xhsd.utils.Result;
-import com.xhsd.utils.ReturnCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +48,14 @@ public class ZyHzzlServiceImpl extends ServiceImpl<ZyHzzlMapper, ZyHzzl> impleme
     @Override
     public SpInGetPatInfoResDto spInGetPatInfo(SpInGetPatInfoForm form) {
         String xml = BeanXmlUtils.bean2xml(form, null);
-        return baseMapper.spInGetPatInfo(xml);
+        SpInGetPatInfoResDto dto = baseMapper.spInGetPatInfo(xml);
+//        if (null != dto){
+//            Map<String,Object> map = BeanUtil.beanToMap(dto);
+//            MaskParamUtils.maskHandle(map);
+//            SpInGetPatInfoResDto resDto = BeanUtil.mapToBean(map,SpInGetPatInfoResDto.class,false );
+//            return resDto;
+//        }
+        return dto;
     }
 
 }
