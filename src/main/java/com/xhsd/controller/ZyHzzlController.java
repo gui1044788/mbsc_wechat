@@ -1,5 +1,6 @@
 package com.xhsd.controller;
 
+import com.xhsd.baseutils.currentlimiting.CurrentLimiting;
 import com.xhsd.baseutils.secret.annotation.Secret;
 import com.xhsd.baseutils.secret.util.AesUtil;
 import com.xhsd.dto.CommonResultDto;
@@ -41,7 +42,7 @@ public class ZyHzzlController {
      */
     @RequestMapping(value = "/spInSetPatInfo", method = RequestMethod.POST)
     @ApiOperation(value = "住院登记--新增")
-//    @CurrentLimiting()
+    @CurrentLimiting()
     @Secret(reqPropsName = {"brxm", "sfzh", "hkdh", "xzzDh", "lxdh"}, respPropsName = {})
     public Result<CommonResultDto> spInSetPatInfo(@RequestBody SpPatInfoForm form) {
         return zyHzzlService.spInSetPatInfo(form);
@@ -52,7 +53,7 @@ public class ZyHzzlController {
      */
     @RequestMapping(value = "/spInGetPatInfo", method = RequestMethod.POST)
     @ApiOperation(value = "住院登记--查询")
-//    @CurrentLimiting()
+    @CurrentLimiting()
     @Secret(reqPropsName = {"brxm", "sfzh"}, respPropsName = {"sfzh", "hkdh", "xzzDh", "lxdh"})
     public Result<SpInGetPatInfoResDto> spInGetPatInfo(@RequestBody SpInGetPatInfoForm form) {
         return Result.success(zyHzzlService.spInGetPatInfo(form));

@@ -83,7 +83,7 @@ public class SecretAop {
 
 				// 获取响应对象
 				Object result = ((Result<?>)respObj).getData();
-				log.info("result: {}", result);
+//				log.info("result: {}", result);
 
 				if (!ObjectUtils.isEmpty(result)) {
 					for (String propName : respPropsName) {
