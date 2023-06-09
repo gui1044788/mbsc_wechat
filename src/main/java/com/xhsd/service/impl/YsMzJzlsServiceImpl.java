@@ -7,10 +7,8 @@ import com.xhsd.form.QueryYsMzJzlsDtoListForm;
 import com.xhsd.mapper.datasource34.YsMzJzlsMapper;
 import com.xhsd.service.YsMzJzlsService;
 import com.xhsd.utils.Result;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 /**

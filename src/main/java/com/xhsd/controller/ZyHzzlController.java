@@ -2,7 +2,6 @@ package com.xhsd.controller;
 
 import com.xhsd.baseutils.currentlimiting.CurrentLimiting;
 import com.xhsd.baseutils.secret.annotation.Secret;
-import com.xhsd.baseutils.secret.util.AesUtil;
 import com.xhsd.dto.CommonResultDto;
 import com.xhsd.dto.SpInGetPatInfoResDto;
 import com.xhsd.form.SpInGetPatInfoForm;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
 
 /**
  * (com.xhsd.entity.ZyHzzl)表服务控制层
