@@ -49,12 +49,6 @@ public class ZyHzzlServiceImpl extends ServiceImpl<ZyHzzlMapper, ZyHzzl> impleme
     public SpInGetPatInfoResDto spInGetPatInfo(SpInGetPatInfoForm form) {
         String xml = BeanXmlUtils.bean2xml(form, null);
         SpInGetPatInfoResDto dto = baseMapper.spInGetPatInfo(xml);
-//        if (null != dto){
-//            Map<String,Object> map = BeanUtil.beanToMap(dto);
-//            MaskParamUtils.maskHandle(map);
-//            SpInGetPatInfoResDto resDto = BeanUtil.mapToBean(map,SpInGetPatInfoResDto.class,false );
-//            return resDto;
-//        }
         return dto;
     }
 

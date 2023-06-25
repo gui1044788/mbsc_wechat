@@ -27,6 +27,8 @@ public class SpInGetPatInfoResDto {
     @ApiModelProperty("")
     private String zydm;
     @ApiModelProperty("")
+    private String jgdm;
+    @ApiModelProperty("")
     private String jgdmSqs;
     @ApiModelProperty("")
     private String jgdmS;
