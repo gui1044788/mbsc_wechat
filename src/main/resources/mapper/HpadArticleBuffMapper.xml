@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhsd.mapper.HpadArticleBuffMapper">
+
+
+    <insert id="insertHpadArticleBuff" parameterType="com.xhsd.entity.HpadArticleBuff">
+        insert into hpad_article_buff
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">
+            article_id,
+            </if>
+            <if test="views != null">
+            views,
+            </if>
+            <if test="dayViews != null">
+            day_views,
+            </if>
+            <if test="weekViews != null">
+            week_views,
+            </if>
+            <if test="monthViews != null">
+            month_views,
+            </if>
+            <if test="onlineDate != null">
+            online_date,
+            </if>
+            <if test="offlineDate != null">
+            offline_date,
+            </if>
+            <if test="stickyDate != null">
+            sticky_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">
+            #{articleId,jdbcType=DECIMAL},
+            </if>
+            <if test="views != null">
+            #{views,jdbcType=VARCHAR},
+            </if>
+            <if test="dayViews != null">
+            #{dayViews,jdbcType=VARCHAR},
+            </if>
+            <if test="weekViews != null">
+            #{weekViews,jdbcType=VARCHAR},
+            </if>
+            <if test="monthViews != null">
+            #{monthViews,jdbcType=VARCHAR},
+            </if>
+            <if test="onlineDate != null">
+            #{onlineDate,jdbcType=VARCHAR},
+            </if>
+            <if test="offlineDate != null">
+            #{offlineDate,jdbcType=VARCHAR},
+            </if>
+            <if test="stickyDate != null">
+            #{stickyDate,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
+

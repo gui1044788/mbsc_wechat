@@ -47,11 +47,11 @@ public class SwaggerConfiguration {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("医疗移动服务-微信端应用接口文档")
+                .title("医疗移动服务-床头平板应用接口文档")
                 .contact(new Contact("guij", "url", "1044788@qq.com"))
-                .description("医疗移动服务-微信端应用接口文档")
+                .description("医疗移动服务-床头平板应用接口文档")
                 .version("1.0")
-                .termsOfServiceUrl("http://localhost:8079/msbc/doc.html")
+                .termsOfServiceUrl("c")
                 .build();
     }
 

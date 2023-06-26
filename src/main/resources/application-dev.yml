@@ -1,5 +1,5 @@
 server:
-   port: 8079
+   port: 8124
    servlet:
       context-path: /msbc
 spring:
@@ -23,47 +23,12 @@ spring:
          validation-query-timeout: 1
          validation-query: SELECT 1 FROM DUAL
 
+      datasource:
+         username: MSBC3DBA
+         password: asd232238866
+         driver-class-name: dm.jdbc.driver.DmDriver
+         url: jdbc:dm://localhost:5236/MSBC3DBA?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8
 
-#         datasource75:
-#            driver-class-name: com.mysql.cj.jdbc.Driver
-#            url: jdbc:mysql://172.16.20.75:3306/uih_appoint_sz?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT
-#            username: test1
-#            password: f93js893
-#
-#         datasource184:
-#            username: JZ
-#            password: jinzhen
-#            driver-class-name: oracle.jdbc.OracleDriver
-#            url: jdbc:oracle:thin:@172.16.0.184:1521/bslis52
-
-#         datasource188:
-#            username: sa
-#            password: Casking@88
-#            driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#            url: jdbc:sqlserver://172.16.0.188:1433;DatabaseName=CHMTEST
-
-         datasource34:
-            username: sa
-            password: Casking@88
-            driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-            url: jdbc:sqlserver://172.16.0.188:1433;DatabaseName=CHMTEST
-
-#         datasourceemr:
-#            username: sa
-#            password: Casking@88
-#            driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#            url: jdbc:sqlserver://172.16.0.188:1433;DatabaseName=CHMTEST
-#
-#         datasourceresdb:
-#            username: sa
-#            password: Casking@88
-#            driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#            url: jdbc:sqlserver://172.16.0.188:1433;DatabaseName=CHMTEST
-
-
-   redis:
-      host: 127.0.0.1
-      port: 6379
 
 # Mybatis-plus配置
 mybatis-plus:
@@ -77,3 +42,4 @@ mybatis-plus:
 
 aes:
    secret: 6hj$xggb@ssg#1ca
+   iv: Mrm2L0qxAqy8DcZS

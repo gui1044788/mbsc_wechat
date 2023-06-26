@@ -1,7 +1,7 @@
 package com.xhsd.baseutils.currentlimiting;
 
-import com.xhsd.utils.Result;
-import com.xhsd.utils.ReturnCode;
+import com.xhsd.baseutils.utils.Result;
+import com.xhsd.baseutils.utils.ReturnCode;
 import net.jodah.expiringmap.ExpirationPolicy;
 import net.jodah.expiringmap.ExpiringMap;
 import org.aspectj.lang.ProceedingJoinPoint;

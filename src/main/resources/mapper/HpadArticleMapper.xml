@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhsd.mapper.HpadArticleMapper">
+
+    <resultMap id="BaseResultMap" type="com.xhsd.entity.HpadArticle">
+            <id property="id" column="id" jdbcType="DECIMAL"/>
+            <result property="siteId" column="site_id" jdbcType="VARCHAR"/>
+            <result property="orgId" column="org_id" jdbcType="VARCHAR"/>
+            <result property="channelId" column="channel_id" jdbcType="VARCHAR"/>
+            <result property="contentType" column="content_type" jdbcType="VARCHAR"/>
+            <result property="repealQuartz" column="repeal_quartz" jdbcType="VARCHAR"/>
+            <result property="articleType" column="article_type" jdbcType="VARCHAR"/>
+            <result property="articleSubType" column="article_sub_type" jdbcType="VARCHAR"/>
+            <result property="state" column="state" jdbcType="VARCHAR"/>
+            <result property="department" column="department" jdbcType="VARCHAR"/>
+            <result property="sticky" column="sticky" jdbcType="VARCHAR"/>
+            <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+            <result property="updateUser" column="update_user" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,site_id,org_id,
+        channel_id,content_type,repeal_quartz,
+        article_type,article_sub_type,state,
+        department,sticky,create_user,
+        create_time,update_user,update_time
+    </sql>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from hpad_article
+        where  id = #{id,jdbcType=BIGINT} 
+    </delete>
+
+    <insert id="insertHpadArticle" parameterType="com.xhsd.entity.HpadArticle" useGeneratedKeys="true" keyProperty="id" >
+        insert into hpad_article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                id,
+                <if test="siteId != null">site_id,</if>
+                <if test="orgId != null">org_id,</if>
+                <if test="channelId != null">channel_id,</if>
+                <if test="contentType != null">content_type,</if>
+                <if test="repealQuartz != null">repeal_quartz,</if>
+                <if test="articleType != null">article_type,</if>
+                <if test="articleSubType != null">article_sub_type,</if>
+                <if test="state != null">state,</if>
+                <if test="department != null">department,</if>
+                <if test="sticky != null">sticky,</if>
+                <if test="createUser != null">create_user,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateUser != null">update_user,</if>
+                <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{id,jdbcType=DECIMAL},
+                <if test="siteId != null">#{siteId,jdbcType=VARCHAR},</if>
+                <if test="orgId != null">#{orgId,jdbcType=VARCHAR},</if>
+                <if test="channelId != null">#{channelId,jdbcType=VARCHAR},</if>
+                <if test="contentType != null">#{contentType,jdbcType=VARCHAR},</if>
+                <if test="repealQuartz != null">#{repealQuartz,jdbcType=VARCHAR},</if>
+                <if test="articleType != null">#{articleType,jdbcType=VARCHAR},</if>
+                <if test="articleSubType != null">#{articleSubType,jdbcType=VARCHAR},</if>
+                <if test="state != null">#{state,jdbcType=VARCHAR},</if>
+                <if test="department != null">#{department,jdbcType=VARCHAR},</if>
+                <if test="sticky != null">#{sticky,jdbcType=VARCHAR},</if>
+                <if test="createUser != null">#{createUser,jdbcType=VARCHAR},</if>
+                <if test="createTime != null">#{createTime,jdbcType=VARCHAR},</if>
+                <if test="updateUser != null">#{updateUser,jdbcType=VARCHAR},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xhsd.entity.HpadArticle">
+        update hpad_article
+        <set>
+                <if test="siteId != null">
+                    site_id = #{siteId,jdbcType=VARCHAR},
+                </if>
+                <if test="orgId != null">
+                    org_id = #{orgId,jdbcType=VARCHAR},
+                </if>
+                <if test="channelId != null">
+                    channel_id = #{channelId,jdbcType=VARCHAR},
+                </if>
+                <if test="contentType != null">
+                    content_type = #{contentType,jdbcType=VARCHAR},
+                </if>
+                <if test="repealQuartz != null">
+                    repeal_quartz = #{repealQuartz,jdbcType=VARCHAR},
+                </if>
+                <if test="articleType != null">
+                    article_type = #{articleType,jdbcType=VARCHAR},
+                </if>
+                <if test="articleSubType != null">
+                    article_sub_type = #{articleSubType,jdbcType=VARCHAR},
+                </if>
+                <if test="state != null">
+                    state = #{state,jdbcType=VARCHAR},
+                </if>
+                <if test="department != null">
+                    department = #{department,jdbcType=VARCHAR},
+                </if>
+                <if test="sticky != null">
+                    sticky = #{sticky,jdbcType=VARCHAR},
+                </if>
+                <if test="createUser != null">
+                    create_user = #{createUser,jdbcType=VARCHAR},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=VARCHAR},
+                </if>
+                <if test="updateUser != null">
+                    update_user = #{updateUser,jdbcType=VARCHAR},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=VARCHAR},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=DECIMAL}
+    </update>
+
+</mapper>
