@@ -4,7 +4,7 @@ import cn.hutool.crypto.Mode;
 import cn.hutool.crypto.Padding;
 import com.xhsd.baseutils.secret.annotation.Secret;
 import com.xhsd.baseutils.secret.util.AesUtil;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

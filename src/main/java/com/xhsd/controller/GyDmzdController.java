@@ -2,7 +2,7 @@ package com.xhsd.controller;
 
 import com.xhsd.dto.GyDmzdResDto;
 import com.xhsd.service.GyDmzdService;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

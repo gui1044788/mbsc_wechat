@@ -4,7 +4,7 @@ import com.xhsd.baseutils.currentlimiting.CurrentLimiting;
 import com.xhsd.dto.YsMzJzlsDto;
 import com.xhsd.form.QueryYsMzJzlsDtoListForm;
 import com.xhsd.service.YsMzJzlsService;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

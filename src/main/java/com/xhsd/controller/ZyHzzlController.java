@@ -7,7 +7,7 @@ import com.xhsd.dto.SpInGetPatInfoResDto;
 import com.xhsd.form.SpInGetPatInfoForm;
 import com.xhsd.form.SpPatInfoForm;
 import com.xhsd.service.ZyHzzlService;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

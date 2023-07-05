@@ -6,7 +6,7 @@ import com.xhsd.dto.SpInGetPatInfoResDto;
 import com.xhsd.entity.ZyHzzl;
 import com.xhsd.form.SpInGetPatInfoForm;
 import com.xhsd.form.SpPatInfoForm;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 
 /**
  * (com.xhsd.entity.ZyHzzl)表服务接口层

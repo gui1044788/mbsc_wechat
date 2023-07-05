@@ -10,8 +10,8 @@ import com.xhsd.form.SpInSetPatInfoForm;
 import com.xhsd.form.SpPatInfoForm;
 import com.xhsd.mapper.datasource34.ZyHzzlMapper;
 import com.xhsd.service.ZyHzzlService;
-import com.xhsd.utils.BeanXmlUtils;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.BeanXmlUtils;
+import com.xhsd.baseutils.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

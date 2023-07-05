@@ -1,4 +1,4 @@
-package com.xhsd.utils;
+package com.xhsd.baseutils.utils;
 
 import com.thoughtworks.xstream.XStream;
 import java.util.Iterator;

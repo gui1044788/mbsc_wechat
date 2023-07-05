@@ -6,7 +6,7 @@ import com.xhsd.entity.YsMzJzls;
 import com.xhsd.form.QueryYsMzJzlsDtoListForm;
 import com.xhsd.mapper.datasource34.YsMzJzlsMapper;
 import com.xhsd.service.YsMzJzlsService;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

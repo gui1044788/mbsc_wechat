@@ -1,4 +1,4 @@
-package com.xhsd.utils;
+package com.xhsd.baseutils.utils;
 
 import lombok.Getter;
 import lombok.ToString;

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.xhsd.dto.YsMzJzlsDto;
 import com.xhsd.entity.YsMzJzls;
 import com.xhsd.form.QueryYsMzJzlsDtoListForm;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 
 import java.util.List;
 

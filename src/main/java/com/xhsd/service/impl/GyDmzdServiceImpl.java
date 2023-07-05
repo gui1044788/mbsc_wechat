@@ -6,7 +6,7 @@ import com.xhsd.dto.GyDmzdResDto;
 import com.xhsd.entity.GyDmzd;
 import com.xhsd.mapper.datasource34.GyDmzdMapper;
 import com.xhsd.service.GyDmzdService;
-import com.xhsd.utils.Result;
+import com.xhsd.baseutils.utils.Result;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
